@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>洛雪影视导航</title>
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="head-row">
+        <h1>洛雪影视导航</h1>
+        <button id="updateBtn">检测更新</button>
+      </div>
+      <div class="tip">
+        <span class="dot-g">绿 = 可访问</span>
+        <span class="sep">|</span>
+        <span class="dot-r">红 = 不可访问</span>
+        <span class="sep">|</span>
+        <span>请勿轻易相信或点击站点广告</span>
+        <span class="sep">|</span>
+        <span>右键卡片可置顶</span>
+      </div>
+    </header>
+    <main id="grid"></main>
+    <footer>数据来源 awesome-zhuiju-free · <span id="ver"></span></footer>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

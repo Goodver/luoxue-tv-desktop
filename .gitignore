@@ -1,0 +1,17 @@
+# 依赖与构建产物
+node_modules/
+dist/
+release/
+out/
+
+# 安装包
+*.exe
+*.msi
+*.dmg
+*.blockmap
+*.zip
+
+# 系统
+.DS_Store
+Thumbs.db
+*.log

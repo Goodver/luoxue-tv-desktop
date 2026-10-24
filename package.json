@@ -1,0 +1,44 @@
+{
+  "name": "luoxue-tv-nav-desktop",
+  "version": "1.0.10",
+  "description": "洛雪影视导航 - Windows 桌面版：全屏影视站点导航，点击直达，无浏览器 UI",
+  "main": "main.js",
+  "author": "higite",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.luoxue.tv.desktop",
+    "productName": "洛雪影视导航",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "btn.html",
+      "btn-preload.js",
+      "nav.html",
+      "nav.css",
+      "nav.js",
+      "resources.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "洛雪影视导航"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.0.0",
+    "electron-builder": "^26.15.3"
+  }
+}
