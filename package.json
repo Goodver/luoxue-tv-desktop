@@ -3,8 +3,9 @@
   "version": "1.0.10",
   "description": "洛雪影视导航 - Windows 桌面版：全屏影视站点导航，点击直达，无浏览器 UI",
   "main": "main.js",
-  "author": "higite",
+  "author": "Goodver",
   "license": "MIT",
+  "copyright": "Copyright © 2026 Goodver. All rights reserved.",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --win"
