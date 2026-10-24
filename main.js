@@ -2,8 +2,8 @@ const { app, BrowserWindow, ipcMain, WebContentsView } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
-// 远程数据源：与手机版一致，拉取到本地缓存，失败保留旧数据
-const REMOTE_SOURCE = 'https://raw.githubusercontent.com/higite/luoxue-tv/main/resources/resources.json';
+// 远程数据源：与手机版一致（Goodver/luoxue-tv 仓库），拉取到本地缓存，失败保留旧数据
+const REMOTE_SOURCE = 'https://raw.githubusercontent.com/Goodver/luoxue-tv/main/resources/resources.json';
 const BUILTIN = path.join(__dirname, 'resources.json');
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.7049.42 Safari/537.36 Edg/135.0.0.0';
 
