@@ -207,6 +207,8 @@ ipcMain.handle('get-status-cache', () => {
 });
 
 ipcMain.handle('check-site', async (e, url) => {
+  // 已有检测结果直接返回缓存：程序运行期不重复检测（对齐手机版——只有首次启动检测一次）
+  if (statusCache.has(url)) return statusCache.get(url);
   const r = await probe(url);
   statusCache.set(url, r);
   return r;
@@ -238,7 +240,20 @@ ipcMain.handle('update-data', async () => {
 
 ipcMain.handle('open-site', (e, url) => { openSite(url); });
 
-app.whenReady().then(() => {
-  createMainWindow();
-});
+// 单实例：整个系统只允许运行一个洛雪影视导航实例。
+// 已有一个实例在运行时，重复启动立即退出，并聚焦已有窗口。
+const gotLock = app.requestSingleInstanceLock();
+if (!gotLock) {
+  app.quit();
+} else {
+  app.on('second-instance', () => {
+    if (win && !win.isDestroyed()) {
+      if (win.isMinimized()) win.restore();
+      win.focus();
+    }
+  });
+  app.whenReady().then(() => {
+    createMainWindow();
+  });
+}
 app.on('window-all-closed', () => app.quit());

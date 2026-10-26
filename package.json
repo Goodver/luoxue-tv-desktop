@@ -1,6 +1,6 @@
 {
   "name": "luoxue-tv-nav-desktop",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "洛雪影视导航 - Windows 桌面版：全屏影视站点导航，点击直达，无浏览器 UI",
   "main": "main.js",
   "author": "Goodver",
@@ -27,6 +27,7 @@
       "resources.json"
     ],
     "win": {
+      "icon": "build/icon.ico",
       "target": [
         "nsis",
         "portable"

@@ -27,7 +27,10 @@ async function init() {
   if (cached) {
     for (const s of sites) {
       const st = cache[s.url];
-      if (st) updateTag(s.url, st.ok ? 'ok' : 'fail');
+      if (st) {
+        statusMap.set(s.url, st.ok ? 'ok' : 'fail');
+        updateTag(s.url, st.ok ? 'ok' : 'fail');
+      }
     }
   } else {
     checkAll();
@@ -125,7 +128,9 @@ function card(s) {
   el.dataset.url = s.url;
 
   const tag = document.createElement('div');
-  tag.className = 'tag checking';
+  // 渲染重建时恢复已有检测状态（置顶/重排不再变灰），无状态才显示 checking
+  const known = statusMap.get(s.url);
+  tag.className = 'tag ' + (known === 'ok' ? 'ok' : known === 'fail' ? 'fail' : 'checking');
   tag.dataset.tag = s.url;
 
   const info = document.createElement('div');
